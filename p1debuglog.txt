@@ -1,0 +1,33 @@
+eading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x81a: file p1final.c, line 16.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1final.c:16
+16  {
+(gdb) n
+17    float base,height, area=0;
+(gdb) s
+18    input(&height,&base);
+(gdb) s
+input (base=0x7ffc6c3c1720, height=0x7ffc6c3c171c) at p1final.c:4
+4     printf("Enter length of base and height of triangle:\n");
+(gdb) n
+Enter length of base and height of triangle:
+5     scanf("%f%f",base,height);
+(gdb) n
+1
+2
+6   }
+(gdb) n
+main () at p1final.c:19
+19    find_area(height,base,&area);
+(gdb) s
+find_area (base=1, height=2, area=0x7ffc6c3c1724) at p1final.c:9
+9     *area = (base*height)/0.5 ;
+(gdb) n
+10  }
+(gdb) n
+ 
