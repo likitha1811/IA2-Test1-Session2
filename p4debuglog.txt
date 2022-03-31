@@ -1,5 +1,4 @@
- 
- gcc -g p4final.c
+gcc -g p4final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -17,107 +16,128 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x8f8: file p4final.c, line 43.
+Breakpoint 1 at 0x8f8: file p4final.c, line 47.
 (gdb) r
 Starting program: /home/runner/IA2-Test1-Session2-2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p4final.c:43
-43  {
+Breakpoint 1, main () at p4final.c:47
+47  {
 (gdb) n
-44    int length=input_array_size();
+49    y = input_array_size();
+(gdb) s
+input_array_size () at p4final.c:3
+3   {
+(gdb) n
+5     printf("Enter the length of the array:\n");
 (gdb) n
 Enter the length of the array:
-5
-45    int data[length];
-(gdb) p length
-$1 = 5
+6     scanf("%d", &n);
 (gdb) n
-46     input_array(length, data);
+3
+7     return n;
+(gdb) n
+8   }
+(gdb) n
+main () at p4final.c:50
+50    int arr[y];
+(gdb) n
+51    input_array(y,arr);
 (gdb) s
-input_array (n=5, a=0x7ffeffb41a90) at p4final.c:11
-11    printf("Enter all the values of the array:\n");
+input_array (n=3, a=0x7fff8714c840) at p4final.c:12
+12    printf("Enter all values of the array:\n");
 (gdb) n
-Enter all the values of the array:
-12    for(int i=0;i<n;i++)
+Enter all values of the array:
+13    for (int i = 0; i < n; i++)
 (gdb) n
-14      scanf("%d",&a[i]);
-(gdb) n
-1
-12    for(int i=0;i<n;i++)
-(gdb) n
-14      scanf("%d",&a[i]);
-(gdb) n
-2
-12    for(int i=0;i<n;i++)
-(gdb) n
-14      scanf("%d",&a[i]);
-(gdb) n
-7
-12    for(int i=0;i<n;i++)
-(gdb) n
-14      scanf("%d",&a[i]);
+15      scanf("%d", &a[i]);
 (gdb) n
 8
-12    for(int i=0;i<n;i++)
+13    for (int i = 0; i < n; i++)
 (gdb) n
-14      scanf("%d",&a[i]);
+15      scanf("%d", &a[i]);
 (gdb) n
-12
-12    for(int i=0;i<n;i++)
+1
+13    for (int i = 0; i < n; i++)
 (gdb) n
-16  }
+15      scanf("%d", &a[i]);
 (gdb) n
-main () at p4final.c:47
-47     int res= sum_composite_numbers(length, data);
-(gdb) p data
-$2 = {1, 2, 7, 8, 12}
+4
+13    for (int i = 0; i < n; i++)
+(gdb) n
+17  }
+(gdb) n
+main () at p4final.c:52
+52    int result = sum_composite_numbers(y,arr);
 (gdb) s
-sum_composite_numbers (n=5, a=0x7ffeffb41a90) at p4final.c:28
-28    int sum =0;
+sum_composite_numbers (n=3, a=0x7fff8714c840) at p4final.c:30
+30    int sum = 0;
 (gdb) n
-29    for(int i=0;i<n;i++)
+31    for (int i = 0; i < n; i++)
 (gdb) n
-31      if(is_composite(a[i]))
-(gdb) n
-29    for(int i=0;i<n;i++)
-(gdb) n
-31      if(is_composite(a[i]))
-(gdb) n
-29    for(int i=0;i<n;i++)
-(gdb) n
-31      if(is_composite(a[i]))
-(gdb) n
-29    for(int i=0;i<n;i++)
-(gdb) n
-31      if(is_composite(a[i]))
-(gdb) n
-33        sum +=a[i];
-(gdb) n
-29    for(int i=0;i<n;i++)
-(gdb) n
-31      if(is_composite(a[i]))
-(gdb) n
-33        sum +=a[i];
-(gdb) n
-29    for(int i=0;i<n;i++)
-(gdb) n
-36    return sum;
-(gdb) n
-37  }
-(gdb) n
-main () at p4final.c:48
-48     out_put(res);
+33      if (is_composite(a[i]))
 (gdb) s
-out_put (sum=20) at p4final.c:40
-40    printf("%d\n",sum);
+is_composite (b=8) at p4final.c:21
+21    for (int i = 2; i <= b/2; i++)
 (gdb) n
-20
-41  }
+23      if (b%i == 0)
 (gdb) n
-main () at p4final.c:49
-49     return 0;
-(gdb) c
-Continuing.
-[Inferior 1 (process 57) exited normally]
-(gdb) 
+24        return 1;
+(gdb) n
+27  }
+(gdb) n
+sum_composite_numbers (n=3, a=0x7fff8714c840) at p4final.c:35
+35        sum = sum + a[i];
+(gdb) n
+31    for (int i = 0; i < n; i++)
+(gdb) n
+33      if (is_composite(a[i]))
+(gdb) s
+is_composite (b=1) at p4final.c:21
+21    for (int i = 2; i <= b/2; i++)
+(gdb) n
+26    return 0;
+(gdb) n
+27  }
+(gdb) n
+sum_composite_numbers (n=3, a=0x7fff8714c840) at p4final.c:31
+31    for (int i = 0; i < n; i++)
+(gdb) n
+33      if (is_composite(a[i]))
+(gdb) s
+is_composite (b=4) at p4final.c:21
+21    for (int i = 2; i <= b/2; i++)
+(gdb) n
+23      if (b%i == 0)
+(gdb) n
+24        return 1;
+(gdb) n
+27  }
+(gdb) n
+sum_composite_numbers (n=3, a=0x7fff8714c840) at p4final.c:35
+35        sum = sum + a[i];
+(gdb) n
+31    for (int i = 0; i < n; i++)
+(gdb) n
+38    return sum;
+(gdb) n
+39  }
+(gdb) n
+main () at p4final.c:53
+53    out_put(result);
+(gdb) s
+out_put (sum=12) at p4final.c:43
+43    printf("the sum of composite numbers in the gives array is : %d\n", sum);
+(gdb) n
+the sum of composite numbers in the gives array is : 12
+44  }
+(gdb) n
+main () at p4final.c:54
+54    return 0;
+(gdb) n
+55  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 3747] will be killed.
+
+Quit anyway? (y or n)  
